@@ -4,195 +4,481 @@
     <meta charset="UTF-8">
     <title>Hari Hara Sudhan Shanmugam | Portfolio</title>
     <style>
-        body {
-            background-color: #121212;
-            color: #f0f0f0;
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #1f1f1f;
-            padding: 20px;
-            text-align: center;
-            color: #39ff14;
-            font-size: 32px;
-        }
-        nav {
-            background-color: #2c2c2c;
-            padding: 10px;
-        }
-        nav a {
-            color: #f0932b;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            color: #39ff14;
-        }
-        section {
-            padding: 20px;
-            border-bottom: 1px solid #333;
-        }
-        h2 {
-            color: #ff5e57;
-            border-bottom: 2px solid #ff5e57;
-            padding-bottom: 5px;
-        }
-        .breadcrumb {
-            font-size: 14px;
-            margin-bottom: 10px;
-            color: #bbb;
-        }
-        ul {
-            line-height: 1.6;
-        }
-        .project {
-            margin-bottom: 20px;
-        }
-        footer {
-            background-color: #1f1f1f;
-            text-align: center;
-            padding: 10px;
-            color: #666;
-            font-size: 12px;
-        }
-        a:link {
-          color: green;
-          background-color: transparent;
+      @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+  
+      body {
+          background-color: #0d0d0d;
+          color: #f4f4f4;
+          font-family: 'Courier New', Courier, monospace;
+          margin: 0;
+          padding: 0;
+      }
+      #home{
+        text-align: center;
+        font-size: 24px;
+      }
+  
+      header {
+          /*background-color: #111;*/
+          padding: 20px;
+          text-align: center;
+          color: #fa576f;
+          font-size: 32px;
+          text-shadow: 0 0 8px #fa576f, 0 0 16px #7209b7;
+      }
+  
+      nav {
+          /*background-color: #1a1a1a;*/
+          font-size: 24px;
+          padding: 12px;
+          text-align: center;
+      }
+  
+      nav a {
+          color: #00f5d4;
+          margin: 0 12px;
           text-decoration: none;
-        }
-        a:visited {
-          color: #ff5e57;
-          background-color: transparent;
+          font-weight: bold;
+          text-shadow: 0 0 6px #00f5d4;
+          transition: color 0.2s ease, text-shadow 0.3s ease;
+      }
+  
+      nav a:hover {
+          color: #f72585;
+          text-shadow: 0 0 8px #f72585;
+      }
+  
+      section {
+          padding: 20px;
+          border-bottom: 1px solid #333;
+      }
+  
+      h2 {
+          color: #ffbe0b;
+          border-bottom: 2px solid #ffbe0b;
+          padding-bottom: 6px;
+          text-shadow: 0 0 6px #ffbe0b;
+      }
+  
+      .breadcrumb {
+          font-size: 14px;
+          margin-bottom: 10px;
+          color: #888;
+      }
+  
+      ul {
+          line-height: 1.7;
+      }
+  
+      .project {
+          margin-bottom: 20px;
+      }
+  
+      footer {
+          background-color: #111;
+          text-align: center;
+          padding: 10px;
+          color: #666;
+          font-size: 12px;
+      }
+  
+      a:link {
+          color: #3afca8;
           text-decoration: none;
-        }
-        a:hover {
-          color: red;
-          background-color: transparent;
+      }
+  
+      a:visited {
+          color: #ff6bcb;
+      }
+  
+      a:hover {
+          color: #ffbe0b;
           text-decoration: underline;
-        }
-        a:active {
-          color: yellow;
-          background-color: transparent;
-          text-decoration: underline;
-        }
-    </style>
+          text-shadow: 0 0 8px #ffbe0b;
+      }
+  
+      a:active {
+          color: #f72585;
+      }
+  
+      canvas {
+          display: block;
+          background: #0d0d0d;
+          border-radius: 12px;
+          box-shadow: 0 0 12px #3a0ca3, 0 0 24px #3a0ca3;
+      }
+  
+      #restartButton {
+          position: absolute;
+          top: 12px;
+          right: 32px;
+          z-index: 99;
+          padding: 4px 6px;
+          background: #ffbe0b;
+          border: none;
+          border-radius: 12px;
+          cursor: pointer;
+          font-size: 32px;
+          font-family: 'Press Start 2P', cursive;
+          color: #3a0ca3;
+          box-shadow: 0 0 16px #ffbe0b, 0 0 32px #ffbe0b;
+          transition: all 0.2s ease-in-out;
+      }
+  
+      #restartButton:hover {
+          background: #f72585;
+          box-shadow: 0 0 20px #f72585, 0 0 40px #f72585;
+          color: #fff;
+          transform: scale(1.05);
+      }
+      
+  </style>
 </head>
 <body>
+  
+<button id="restartButton" title="Restart Game">🔄</button>
+<canvas id="gameCanvas"></canvas>
 
-<header>
-    Hari Hara Sudhan Shanmugam
-</header>
-
+<section id="home">
+  <header>
+    HARI HARA SUDHAN SHANMUGAM
+  </header>
+  <p>
+    <strong>Senior Software Engineer</strong><br>
+    <strong>Hamilton, ON, Canada </strong> | <strong><a href="https://www.linkedin.com/in/hari-hara-sudhan-shanmugam/">LinkedIn</a></strong> | 
+    <strong>contacthari.dev@gmail.com <br></strong>
+</p>
+  
+</section>
+<section id="contact">
 <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#education">Education</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#others">Others</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#education">Education</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#others">Others</a>
 </nav>
-
+</section>
 <section id="about">
-    <div class="breadcrumb">Home / About</div>
+    <div class="breadcrumb"><a href="#home">Home</a> / About</div>
     <h2>About</h2>
     <p>
-        <strong>Location:</strong> Hamilton, ON <br>
-        <strong>Phone:</strong> +1 519-965-8025 <br>
-        <strong>Email:</strong> contacthari.dev@gmail.com <br>
-        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/hari-hara-sudhan-shanmugam/">Hari Shanmugam</a>
+      Results-driven Senior Software Engineer with 4+ years of hands-on experience building and optimizing enterprise-grade applications — with a strong focus on Point of Sale (POS) systems, enterprise integrations, and robust desktop and web platforms.
+
+      Proficient in full-stack development, system integrations, automated testing, and solution architecture, I thrive in agile environments, driving code quality, stability, and operational excellence. Always passionate about learning, mentoring, and delivering reliable, scalable software.
     </p>
 </section>
 
 <section id="skills">
-    <div class="breadcrumb">Home / Skills</div>
+    <div class="breadcrumb"><a href="#home">Home</a> / Skills</div>
     <h2>Skills</h2>
     <ul>
         <li><strong>Languages:</strong> Java, JS, HTML5, CSS3, C++, C, MySQL, NodeJS, ReactJS, jQuery, Kotlin, C#, Python, .NET, SQL</li>
-        <li><strong>Tools & Platforms:</strong> Azure DevOps, Jira, REST API, Git, Android Studio, Flutter, AEM, WIX, Google Sites, IntelliJ, VS2012/2022, Source Tree</li>
-        <li><strong>Other:</strong> Scrum, OOP, DS, Agile, RDBMS, MATLAB, TCP, UDP, UI/UX Design, Frontend, Backend, Full-Stack Development</li>
+        <li><strong>Frameworks:</strong> .NET, ReactJS, Node.js, AEM, Rasa, PySide6, scikit-image</li>
+        <li><strong>Databases:</strong> PostgreSQL, MySQL</li>
+        <li><strong>Tools:</strong> Visual Studio, IntelliJ IDEA, Jenkins, Azure DevOps, Jira, Docker, Git</li>
+        <li><strong>APIs & Protocols:</strong>  RESTful APIs, TCP/IP, UDP, UDS</li>
+        <li><strong>Testing:</strong> Automated UI Testing, Unit & Integration Testing, Load/Stress Testing, E2E Testing</li>
+        <li><strong>Others:</strong> OOP, Agile, CI/CD, SDLC, Data Structures, System Design, UI/UX Principles</li>
     </ul>
 </section>
 
 <section id="education">
-    <div class="breadcrumb">Home / Education</div>
-    <h2>Education</h2>
-    <p><strong>Master of Engineering</strong> - University of Windsor, ON, Canada (09/2021 - 12/2022)</p>
-    <p><strong>Bachelor of Engineering</strong> - Easwari Engineering College, Chennai, India (08/2016 - 05/2020)</p>
+    <div class="breadcrumb"><a href="#home">Home</a> / Education</div>
+      <h2>Education</h2>
+    <h3>Master of Engineering  (Electrical & Computer Engineering) </h3>
+    <p>University of Windsor, ON, Canada (09/2021 - 12/2022)</p>
+    <h3>Bachelor of Engineering (Electronics & Communication Engineering) </h3>
+    <p> Easwari Engineering College, Chennai, India (08/2016 - 05/2020)</p>
 </section>
 
 <section id="experience">
-    <div class="breadcrumb">Home / Experience</div>
+    <div class="breadcrumb"><a href="#home">Home</a> / Experience</div>
     <h2>Experience</h2>
     <h3>Software Engineer II - Mi9 Retail (Toronto, Canada)</h3>
     <p>06/2022 - Current</p>
     <ul>
-        <li>Led enterprise POS apps generating $39M in revenue.</li>
-        <li>Integrated major hardware retailers & improved app performance.</li>
-        <li>Proficient in SQL, C, C++, .NET, TCP/UDP, REST APIs.</li>
-        <li>Code reviews, system analysis, load testing, e2e testing.</li>
+        <li>Lead developer for enterprise POS applications and payment integrations</li>
+        <li>Delivered a custom C-based data migration utility for efficient table restructuring</li>
+        <li>Designed and deployed a Python-based Automated UI Testing tool, reducing manual QA time and improving release confidence</li>
+        <li>Architected secure, scalable REST API services and managed low-level TCP/UDP communications</li>
+        <li>Actively mentored peers, performed rigorous code reviews, and participated in architectural discussions</li>
+        <li>Maintained and optimized complex database operations (PostgreSQL & Progress DB)</li>
+        <li>Key contributor to multi-client application deployments and overnight CI/CD pipelines via Jenkins</li>
     </ul>
 
     <h3>Application Development Associate - Accenture (Bengaluru, India)</h3>
     <p>11/2020 - 08/2021</p>
     <ul>
-        <li>Developed AEM components, templates, workflows.</li>
-        <li>Worked on frontend & backend web tech.</li>
-        <li>Received excellent feedback from clients and supervisors.</li>
+        <li>Developed custom AEM components, services, and workflows for global clients</li>
+        <li>Contributed to full-stack feature development using Java, .NET, Node.js, jQuery, and AWS deployments</li>
+        <li>Worked within Agile Scrum teams delivering production-ready features for e-commerce clients</li>
+        <li>Recognized for reliability in executing time-sensitive critical development tasks</li>
     </ul>
 
     <h3>Software Engineer Intern - Visteon (Chennai, India)</h3>
     <p>06/2018 - 09/2018</p>
     <ul>
-        <li>Worked on automotive diagnostic protocols (UDS).</li>
-        <li>Redesigned source code using UML & C++.</li>
+        <li>Explored automotive UDS protocol implementations and ECU communication stacks</li>
+        <li>Contributed to UML diagram creation and C++ code refactoring for diagnostic services</li>
     </ul>
 </section>
 
 <section id="projects">
-    <div class="breadcrumb">Home / Projects</div>
+    <div class="breadcrumb"><a href="#home">Home</a> / Projects</div>
     <h2>Projects</h2>
 
     <div class="project">
-        <h3>FOODOPIES <a href="https://harishanmugam-dev.github.io/foodopies/">[LINK]</a></h3>
-        <p>A dynamic recipe finder website built using ReactJS, HTML, and CSS. Integrated a third-party recipe API to search and display recipes based on user queries. Showcases results in a responsive and interactive interface with real-time data rendering.</p>
+        <h3>Automated UI Testing Application <a href="https://github.com/HariShanmugam-dev/AutoPOS">[LINK]</a></h3>
+        <p><strong>Objective:</strong> Automate regression testing for desktop POS systems.<br>
+           <strong>Built With:</strong> Python, PySide6, pyautogui, scikit-image, Jenkins<br>
+           <ul>
+            <li>Record & replay user interactions</li>
+            <li>Automated screenshot comparisons</li>
+            <li>Active window verification</li>
+            <li>PDF report generation and Jenkins integration for nightly run</li>
+           </ul>
+        </p>
     </div>
 
     <div class="project">
-        <h3>WEATHER APP <a href="https://harishanmugam-dev.github.io/Weather_Project/">[LINK]</a></h3>
-        <p>A weather application using HTML, CSS, and API integration. Displays current weather for user's location via geolocation, with an option to search weather by city. Integrated real-time API calls to fetch and display updated weather data dynamically.</p>
+        <h3>Pizza Shop Chatbot <a href="">[LINK]</a></h3>
+        <p><strong>Objective:</strong> Build an AI-driven customer support chatbot.<br>
+          <strong>Built With:</strong> Python, Rasa Frameworkbr>
+          <ul>
+           <li>Natural language intent recognition</li>
+           <li>Dialog management and entity extraction</li>
+           <li>Custom-trained NLU model for pizza shop queries</li>
+          </ul>
+       </p>
     </div>
 
     <div class="project">
-        <h3>PIZZA SHOP CHATBOT (Rasa)</h3>
-        <p>Developed a conversational chatbot for a pizza shop using Rasa. Created intents, entities, and stories to handle customer orders, track delivery status, and answer FAQs. Trained the model with custom data and deployed it on a local server to simulate real-time interactions.</p>
+        <h3>Foodopies <a href="https://harishanmugam-dev.github.io/foodopies/">[LINK]</a></h3>
+        <p><strong>A ReactJS-powered recipe finder web app.</strong><br>
+           Features intuitive search and responsive UI.
+       </p>
     </div>
 
     <div class="project">
-        <h3>AUTOMATED TESTING APPLICATION</h3>
-        <p>Engineered a desktop automation testing tool using Python's PyAutoGUI. Recorded user mouse and keyboard actions, stored test scenarios in JSON, and replayed them for Windows applications. Incorporated screenshot comparison and reporting for UI validations, streamlining regression testing.</p>
+        <h3>Weather Application <a href="https://harishanmugam-dev.github.io/foodopies/">[LINK]</a></h3>
+        <p><strong>Minimalist weather app built using only HTML and CSS.</strong><br></p>
     </div>
 
     <div class="project">
-        <h3>PING PONG GAME FOR APPLE WATCH OS</h3>
+        <h3>PING PONG GAME FOR APPLE WATCH OS <a href="">[LINK]</a></h3>
         <p>Built an interactive Ping Pong game tailored for Apple Watch OS using Swift. Focused on touch responsiveness and seamless performance on limited screen real estate. Optimized game loop and collision mechanics for wearable devices, delivering a nostalgic mini-game experience.</p>
     </div>
 
 </section>
 
 <section id="others">
-    <div class="breadcrumb">Home / Others</div>
+    <div class="breadcrumb"><a href="#home">Home</a> / Others</div>
     <h2>Others</h2>
     <ul>
         <li>Promoted to Software Engineer II at Mi9 Retail.</li>
         <li>Best Volunteer Award at SRM Easwari Engineering College (2018 & 2019).</li>
     </ul>
 </section>
-
 <footer>
     &copy; 2025 Hari Hara Sudhan Shanmugam | Built with pure HTML & classic vibes
 </footer>
+<script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const restartButton = document.getElementById('restartButton');
+  
+    function resizeCanvas() {
+      canvas.width = window.innerWidth /** 0.95*/;
+      canvas.height = window.innerHeight * 0.85;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+  
+    // Paddle
+    const paddleHeight = 20;
+    const paddleWidth = 300;
+    let paddleX;
+  
+    // Ball
+    let ballRadius, x, y, dx, dy;
+  
+    // Blocks
+    const blockRowCount = 30;
+    const blockColumnCount = 80;
+    let blockWidth, blockHeight, blockPadding, blockOffsetTop, blockOffsetLeft;
+    let blocks = [];
+  
+    let gameLoop = null;
+    let gameActive = false;
+  
+    function initGame() {
+    paddleX = (canvas.width - paddleWidth) / 2;
+  
+    ballRadius = 8;
+    x = canvas.width / 2;
+    y = canvas.height - 30;
+    dx = 4;
+    dy = -4;
 
+    if(canvas.width < 600) {
+      ballRadius = 50;
+      blockWidth = canvas.width / blockColumnCount;
+       blockHeight = canvas.width/30;
+    }
+    else
+    {
+      ballRadius = 8;
+      blockWidth = canvas.width / blockColumnCount;
+      blockHeight = 20;
+    }
+  
+    
+    blockPadding = 1;
+    blockOffsetTop = 30;
+    blockOffsetLeft = 0;
+  
+    // Initialize all blocks as inactive
+    blocks = [];
+    for (let c = 0; c < blockColumnCount; c++) {
+      blocks[c] = [];
+      for (let r = 0; r < blockRowCount; r++) {
+        blocks[c][r] = { x: 0, y: 0, status: 0 };
+      }
+    }
+    const nameMap = [
+      " H   H  III        III  II    A    M   M      ",
+      " H   H   I          I    I   A A   MM MM      ",
+      " HHHHH   I          I       AAAAA  M M M      ",
+      " H   H   I          I      A     A M   M      ",
+      " H   H  III        III     A     A M   M      ",
+      "                                              ",
+      "           H   H    A   RRRR  III             ",
+      "           H   H   A A  R   R  I              ",
+      "           HHHHH  AAAAA RRRR   I              ",
+      "           H   H  A   A R R    I              ",
+      "           H   H  A   A R  RR III             "
+    ];
+  
+    // Place active blocks based on nameMap pattern
+    for (let r = 0; r < nameMap.length; r++) {
+      for (let c = 0; c < nameMap[r].length; c++) {
+        if (nameMap[r][c] !== ' ') {
+          let colPos = Math.floor(c + (blockColumnCount - nameMap[r].length) / 2);
+          let rowPos = r + 2; // adjust row offset as needed
+          if (blocks[colPos] && blocks[colPos][rowPos]) {
+            blocks[colPos][rowPos].status = 1;
+          }
+        }
+      }
+    }
+  }
+  
+    function drawPaddle() {
+      ctx.beginPath();
+      ctx.rect(paddleX, canvas.height - paddleHeight - 10, paddleWidth, paddleHeight);
+      ctx.fillStyle = "#8b5cf6";
+      ctx.fill();
+      ctx.closePath();
+    }
+  
+    function drawBall() {
+      ctx.beginPath();
+      ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+      ctx.fillStyle = "#08F7FE";
+      ctx.fill();
+      ctx.closePath();
+    }
+  
+    function drawBlocks() {
+      for (let c = 0; c < blockColumnCount; c++) {
+        for (let r = 0; r < blockRowCount; r++) {
+          if (blocks[c][r].status === 1) {
+            let blockX = c * (blockWidth + blockPadding) + blockOffsetLeft;
+            let blockY = r * (blockHeight + blockPadding) + blockOffsetTop;
+            blocks[c][r].x = blockX;
+            blocks[c][r].y = blockY;
+            ctx.beginPath();
+            ctx.rect(blockX, blockY, blockWidth, blockHeight);
+            ctx.fillStyle = "#fb7185";
+            ctx.fill();
+            ctx.closePath();
+          }
+        }
+      }
+    }
+  
+    function collisionDetection() {
+      for (let c = 0; c < blockColumnCount; c++) {
+        for (let r = 0; r < blockRowCount; r++) {
+          let b = blocks[c][r];
+          if (b.status === 1) {
+            if (x > b.x && x < b.x + blockWidth && y > b.y && y < b.y + blockHeight) {
+              dy = -dy;
+              b.status = 0;
+            }
+          }
+        }
+      }
+    }
+  
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawBlocks();
+      drawBall();
+      drawPaddle();
+      collisionDetection();
+  
+      if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) dx = -dx;
+      if (y + dy < ballRadius) dy = -dy;
+      else if (y + dy > canvas.height - paddleHeight - 10 - ballRadius) {
+        if (x > paddleX && x < paddleX + paddleWidth) {
+          dy = -dy;
+        } else if (y + dy > canvas.height - ballRadius) {
+          stopGame();
+        }
+      }
+  
+      x += dx;
+      y += dy;
+    }
+  
+    function mouseMoveHandler(e) {
+      const relativeX = e.clientX - canvas.offsetLeft;
+      if (relativeX > 0 && relativeX < canvas.width) {
+        paddleX = relativeX - paddleWidth / 2;
+      }
+  
+      // Start game only on first movement
+      if (!gameActive) {
+        gameActive = true;
+        if (gameLoop) clearInterval(gameLoop);
+        gameLoop = setInterval(draw, 16);
+      }
+    }
+  
+    function stopGame() {
+      clearInterval(gameLoop);
+      gameActive = false;
+    }
+  
+    restartButton.onclick = () => {
+      stopGame();
+      initGame();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawBlocks();
+      drawPaddle();
+      drawBall();
+    };
+  
+    document.addEventListener("mousemove", mouseMoveHandler);
+  
+    initGame();
+    drawBlocks();
+    drawPaddle();
+    drawBall();
+  
+  </script>
 </body>
 </html>
